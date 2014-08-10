@@ -1,6 +1,6 @@
 part of goodNbad;
 
-class StaticImage{
+class StaticImage {
 
 	int _x;
 	int _y;
