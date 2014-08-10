@@ -15,6 +15,14 @@ class World {
 		}
 	}
 	
+	List<ImageContainer> getImages(){
+		List<ImageContainer> images = new List<ImageContainer>();
+		_targets.forEach((target){
+        	images.add(target.toImage());
+        });
+		return images;
+	}
+	
 	void play(){
 		_targets.forEach((target){
 			target.goDown();

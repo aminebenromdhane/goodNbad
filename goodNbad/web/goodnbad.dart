@@ -18,7 +18,10 @@ World world;
 
 void gameLoop(num delta){
 	world.play();
-	print();
+	List<ImageContainer> images = world.getImages();
+	images.forEach((image){
+		image.draw();
+	});
 	new Future.delayed(const Duration(milliseconds: 500), (){
 		window.animationFrame.then(gameLoop);	
 	});

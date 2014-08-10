@@ -9,4 +9,5 @@ class ImageContainer {
     ImageContainer(_imagePath, _x, _y){
     	
     }
+    // abstract draw
 }
