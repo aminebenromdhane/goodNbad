@@ -1,16 +1,13 @@
 part of goodNbad;
 
-class StaticImage {
+class StaticImage extends ImageContainer{
 
-	num _x;
-	num _y;
 	int _height;
 	int _width;
-	String _contentPath;
 	ImageElement _content;
 
-	StaticImage(_contentPath, _x, _y, _height, _width){
-		_content = new ImageElement(src: _contentPath);
+	StaticImage(_imagePath, _x, _y, _height, _width): super(_imagePath, _x, _y){
+		_content = new ImageElement(src: _imagePath);
 	}
 
 	void loadImage(var callbackLoadResources){
@@ -22,7 +19,7 @@ class StaticImage {
 	        context.drawImageScaled(_content, _x, _y, _width, _height);
 		}
 		else {
-	        context.drawImage(_content, _x, _y);
+	        context.drawImage(_content, 0, 0);
 		}
 	}
 
