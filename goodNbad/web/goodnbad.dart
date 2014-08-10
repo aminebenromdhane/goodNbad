@@ -16,6 +16,7 @@ var _console3;
 int i=0;
 StaticImage background;
 World world;
+int nbImages = 2;
 
 void gameLoop(num delta){
 	world.play();
@@ -41,7 +42,6 @@ void main() {
 	background = new StaticImage("resources/Mario-Luigi-Paper-Backgrounds.jpg", 0, 0, 0, 0);
 	background.loadImage(callbackLoadResources);
 	world.init();
-	window.animationFrame.then(gameLoop);
 }
 
 
@@ -49,6 +49,9 @@ void callbackLoadResources(Event e){
 	i++;
 	print(i);
 	background.draw(_ctx2d, false);
+	if (i==nbImages){
+		window.animationFrame.then(gameLoop);
+	}
 }
 
 void callback(MouseEvent event) {

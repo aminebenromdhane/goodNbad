@@ -7,13 +7,12 @@ class Target {
 	String _imagePath;
 	int _speed;
 
-	Target(_x, _y){
+	Target(_x, _y, _imagePath){
 		_speed = 10;
-		_imagePath = "";
 	}
 
 	void goDown(){
-//		_y = _y + _speed;
+		_y = _y + _speed;
 	}
 
 	ImageContainer toImage(){
