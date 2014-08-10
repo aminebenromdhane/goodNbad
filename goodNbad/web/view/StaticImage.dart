@@ -2,6 +2,7 @@ part of goodNbad;
 
 class StaticImage {
 
+
 	int _x;
 	int _y;
 	int _height;
