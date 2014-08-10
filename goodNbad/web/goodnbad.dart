@@ -19,10 +19,12 @@ World world;
 
 void gameLoop(num delta){
 	world.play();
+
 	List<ImageContainer> images = world.getImages();
 	images.forEach((image){
 		image.draw(_ctx2d);
 	});
+
 	new Future.delayed(const Duration(milliseconds: 500), (){
 		window.animationFrame.then(gameLoop);
 	});
