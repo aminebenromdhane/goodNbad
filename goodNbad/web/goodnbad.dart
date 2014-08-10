@@ -1,9 +1,10 @@
+library goodNbad;
+
 import 'dart:html';
+part 'view/StaticImage.dart';
 
 void main() {
-  querySelector("#sample_text_id")
-      ..text = "Click me!"
-      ..onClick.listen(reverseText);
+	StaticImage img = new StaticImage("s");
 }
 
 void reverseText(MouseEvent event) {
