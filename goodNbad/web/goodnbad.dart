@@ -1,12 +1,12 @@
 library goodNbad;
 
 import 'dart:html';
-import 'dart:html';
 import 'dart:async';
 part 'view/StaticImage.dart';
 part 'model/World.dart';
 part 'model/Target.dart';
 part 'shared/ImageContainer.dart';
+part 'view/Assets.dart';
 
 CanvasElement _canvas;
 CanvasRenderingContext2D _ctx2d;
