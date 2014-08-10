@@ -3,8 +3,8 @@ part of goodNbad;
 class StaticImage {
 
 
-	int _x;
-	int _y;
+	Double _x;
+	Double _y;
 	int _height;
 	int _width;
 	String _contentPath;
@@ -14,8 +14,8 @@ class StaticImage {
 		_content = new ImageElement(src: _contentPath);
 	}
 
-	void loadImage(var callback){
-		_content.onLoad.listen(callback);
+	void loadImage(var callbackLoadResources){
+		_content.onLoad.listen(callbackLoadResources);
 	}
 
 	void draw(CanvasRenderingContext2D context, bool isScaled){
@@ -23,7 +23,7 @@ class StaticImage {
 	        context.drawImageScaled(_content, _x, _y, _width, _height);
 		}
 		else {
-	        context.drawImage(_content, _x, _y);
+	        context.drawImage(_content, 0, 0);
 		}
 	}
 
