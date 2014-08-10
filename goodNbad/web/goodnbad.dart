@@ -1,6 +1,7 @@
 library goodNbad;
 
 import 'dart:html';
+import 'dart:html';
 import 'dart:async';
 part 'view/StaticImage.dart';
 part 'model/World.dart';
@@ -18,12 +19,14 @@ World world;
 
 void gameLoop(num delta){
 	world.play();
+
 	List<ImageContainer> images = world.getImages();
 	images.forEach((image){
-		image.draw();
+		image.draw(_ctx2d);
 	});
+
 	new Future.delayed(const Duration(milliseconds: 500), (){
-		window.animationFrame.then(gameLoop);	
+		window.animationFrame.then(gameLoop);
 	});
 }
 
@@ -39,7 +42,6 @@ void main() {
 	background.loadImage(callbackLoadResources);
 	world.init();
 	window.animationFrame.then(gameLoop);
-	
 }
 
 

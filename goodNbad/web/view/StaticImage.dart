@@ -1,17 +1,13 @@
 part of goodNbad;
 
-class StaticImage {
+class StaticImage extends ImageContainer{
 
-
-	Double _x;
-	Double _y;
 	int _height;
 	int _width;
-	String _contentPath;
 	ImageElement _content;
 
-	StaticImage(_contentPath, _x, _y, _height, _width){
-		_content = new ImageElement(src: _contentPath);
+	StaticImage(_imagePath, _x, _y, _height, _width): super(_imagePath, _x, _y){
+		_content = new ImageElement(src: _imagePath);
 	}
 
 	void loadImage(var callbackLoadResources){
