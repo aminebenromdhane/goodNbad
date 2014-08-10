@@ -15,5 +15,9 @@ class Target {
 	void goDown(){
 		_y += _speed;
 	}
+	
+	ImageContainer toImage(){
+		new ImageContainer(_imagePath, _x, _y);
+	}
 
 }
