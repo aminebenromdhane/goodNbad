@@ -2,9 +2,8 @@ part of goodNbad;
 
 class StaticImage {
 
-
-	Double _x;
-	Double _y;
+	num _x;
+	num _y;
 	int _height;
 	int _width;
 	String _contentPath;
@@ -23,7 +22,7 @@ class StaticImage {
 	        context.drawImageScaled(_content, _x, _y, _width, _height);
 		}
 		else {
-	        context.drawImage(_content, 0, 0);
+	        context.drawImage(_content, _x, _y);
 		}
 	}
 

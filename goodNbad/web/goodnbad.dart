@@ -1,10 +1,11 @@
 library goodNbad;
 
 import 'dart:html';
-import 'dart:io';
+import 'dart:async';
 part 'view/StaticImage.dart';
 part 'model/World.dart';
 part 'model/Target.dart';
+part 'shared/ImageContainer.dart';
 
 CanvasElement _canvas;
 CanvasRenderingContext2D _ctx2d;
@@ -13,16 +14,21 @@ var _console2;
 var _console3;
 int i=0;
 StaticImage background;
+World world;
 
 void gameLoop(num delta){
-	print("lol");
-	print(delta);
-	sleep(new Duration(milliseconds: 500));
-	window.animationFrame.then(gameLoop);
+	world.play();
+	List<ImageContainer> images = world.getImages();
+	images.forEach((image){
+		image.draw();
+	});
+	new Future.delayed(const Duration(milliseconds: 500), (){
+		window.animationFrame.then(gameLoop);	
+	});
 }
 
 void main() {
-	World world = new World();
+	world = new World();
 	_canvas = querySelector("#gameCanvas");
 	_console1 = querySelector("#console1");
 	_console2 = querySelector("#console2");
@@ -33,7 +39,7 @@ void main() {
 	background.loadImage(callbackLoadResources);
 	world.init();
 	window.animationFrame.then(gameLoop);
-	
+
 }
 
 
