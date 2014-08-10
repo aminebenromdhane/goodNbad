@@ -9,6 +9,7 @@ class Target {
 
 	Target(_x, _y, _imagePath){
 		_speed = 10;
+		_imagePath = Assets.TARGET_IMAGE;
 	}
 
 	void goDown(){
@@ -16,7 +17,7 @@ class Target {
 	}
 
 	ImageContainer toImage(){
-		new ImageContainer(_imagePath, _x, _y);
+		return new ImageContainer(_imagePath, _x, _y);
 	}
 
 }

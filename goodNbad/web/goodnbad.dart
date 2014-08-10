@@ -1,9 +1,9 @@
 library goodNbad;
 
 import 'dart:html';
-import 'dart:html';
 import 'dart:async';
 part 'view/StaticImage.dart';
+part 'view/Assets.dart';
 part 'model/World.dart';
 part 'model/Target.dart';
 part 'shared/ImageContainer.dart';
@@ -48,7 +48,7 @@ void main() {
 void callbackLoadResources(Event e){
 	i++;
 	print(i);
-	background.draw(_ctx2d, false);
+	background.draw(_ctx2d);
 	if (i==nbImages){
 		window.animationFrame.then(gameLoop);
 	}

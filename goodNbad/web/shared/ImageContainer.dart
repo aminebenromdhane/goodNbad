@@ -10,7 +10,7 @@ class ImageContainer {
 
     }
 
-	draw(CanvasRenderingContext2D context, bool isScaled){
+	draw(CanvasRenderingContext2D context){
 
 	}
 
