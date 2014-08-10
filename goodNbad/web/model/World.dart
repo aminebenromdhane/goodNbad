@@ -4,6 +4,10 @@ class World {
 
 	List<Target> _targets;
 	
+	World(){
+		_targets = new List<Target>();
+	}
+	
 	void init(){
 		int numberOfTargets = 10;
 		for(int i = 0 ; i < numberOfTargets ; i++){

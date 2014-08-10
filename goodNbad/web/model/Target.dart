@@ -2,12 +2,14 @@ part of goodNbad;
 
 class Target {
 
-	Double _x;
-	Double _y;
-	String _imagePath = "";
-	Double _speed;
+	int _x;
+	int _y;
+	String _imagePath;
+	int _speed;
 	
-	Target(_contentPath, _x, _y){
+	Target(_x, _y){
+		_speed = 10;
+		_imagePath = "";
 	}
 
 	void goDown(){
