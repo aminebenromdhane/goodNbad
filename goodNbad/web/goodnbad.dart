@@ -2,13 +2,14 @@ library goodNbad;
 
 import 'dart:html';
 import 'dart:async';
+part 'model/World.dart';
+part 'model/Target.dart';
 part 'view/StaticImage.dart';
 part 'view/Assets.dart';
 part 'view/AssetsLoader.dart';
 part 'view/ImageLoader.dart';
-part 'model/World.dart';
-part 'model/Target.dart';
-part 'shared/ImageContainer.dart';
+part 'view/ImageContainer.dart';
+part 'presenter/MouseEventManager.dart';
 
 CanvasElement _canvas;
 CanvasRenderingContext2D _ctx2d;
@@ -25,7 +26,6 @@ void gameLoop(num delta){
 
 	List<ImageContainer> images = world.getImages();
 	images.forEach((image){
-		print(image);
 		image.draw(_ctx2d);
 	});
 
@@ -42,6 +42,8 @@ void main() {
 	_console3 = querySelector("#console3");
 	_ctx2d = _canvas.context2D;
 
+	MouseEventManager mouseEventManager = new MouseEventManager(_ctx2d, _console1);
+
 	//background = new StaticImage("resources/Mario-Luigi-Paper-Backgrounds.jpg", 0, 0, 0, 0);
 	//background.loadImage(callbackLoadResources);
 	world.init();
@@ -57,7 +59,7 @@ void callbackLoadResources(Event e){
 	print(i);
 	background.draw(_ctx2d);
 	if (i==nbImages){
-		
+
 	}
 }
 
