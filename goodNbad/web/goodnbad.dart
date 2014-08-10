@@ -4,6 +4,8 @@ import 'dart:html';
 import 'dart:async';
 part 'view/StaticImage.dart';
 part 'view/Assets.dart';
+part 'view/AssetsLoader.dart';
+part 'view/ImageLoader.dart';
 part 'model/World.dart';
 part 'model/Target.dart';
 part 'shared/ImageContainer.dart';
@@ -23,6 +25,7 @@ void gameLoop(num delta){
 
 	List<ImageContainer> images = world.getImages();
 	images.forEach((image){
+		print(image);
 		image.draw(_ctx2d);
 	});
 
@@ -39,9 +42,13 @@ void main() {
 	_console3 = querySelector("#console3");
 	_ctx2d = _canvas.context2D;
 
-	background = new StaticImage("resources/Mario-Luigi-Paper-Backgrounds.jpg", 0, 0, 0, 0);
-	background.loadImage(callbackLoadResources);
+	//background = new StaticImage("resources/Mario-Luigi-Paper-Backgrounds.jpg", 0, 0, 0, 0);
+	//background.loadImage(callbackLoadResources);
 	world.init();
+	AssetsLoader mainLoader = new AssetsLoader();
+    	mainLoader.loadImages((){
+    		window.animationFrame.then(gameLoop);
+    });
 }
 
 
@@ -50,7 +57,7 @@ void callbackLoadResources(Event e){
 	print(i);
 	background.draw(_ctx2d);
 	if (i==nbImages){
-		window.animationFrame.then(gameLoop);
+		
 	}
 }
 

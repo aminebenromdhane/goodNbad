@@ -2,18 +2,18 @@ part of goodNbad;
 
 class Target {
 
-	int _x;
-	int _y;
+	double _x;
+	double _y;
 	String _imagePath;
-	int _speed;
+	double _speed;
 
-	Target(_x, _y, _imagePath){
-		_speed = 10;
+	Target(this._x, this._y){
+		_speed = 10.5;
 		_imagePath = Assets.TARGET_IMAGE;
 	}
 
 	void goDown(){
-		_y = _y + _speed;
+		_y += _speed;
 	}
 
 	ImageContainer toImage(){
