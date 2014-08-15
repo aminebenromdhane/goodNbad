@@ -2,3 +2,4 @@ name: goodNbad
 description: A sample web application
 dependencies:
   browser: any
+  event_bus: any

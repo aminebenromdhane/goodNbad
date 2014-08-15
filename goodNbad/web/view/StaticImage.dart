@@ -2,11 +2,13 @@ part of goodNbad;
 
 class StaticImage extends ImageContainer{
 
-	int _height;
-	int _width;
-	//ImageElement _content;
+//	double _hight;
+//	int _width;
+//	ImageElement _content;
 
-	StaticImage(_imagePath, _x, _y, _height, _width): super(_imagePath, _x, _y){
+	StaticImage(_imagePath, _x, _y, _hight, _width): super(_imagePath, _x, _y){
+		this._hight = _hight;
+		this._width = _width;
 		//_content = new ImageElement(src: _imagePath);
 	}
 
@@ -19,7 +21,7 @@ class StaticImage extends ImageContainer{
 	        context.drawImageScaled(_content, _x, _y, _width, _height);
 		}
 		else {*/
-		context.drawImage(_imageContent, 0, 0);
+		context.drawImage(_imageContent, _x, _y);
 		//}
 	}
 
