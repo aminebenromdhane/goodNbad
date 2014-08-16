@@ -8,18 +8,20 @@ class WorldPresenter {
 	StreamSubscription _subscriptionPlay;
 
 	/**
-	 * Constructeur's WordPresenter<br>
-	 * Init models<br>
+	 * Constructeur's WordPresenter
+	 * Init models
 	 * subscribes on PlayEvent and InitEvent
 	 */
-	GamePresenter(){
+	WorldPresenter(){
+		print("begin init world presenter");
+
 		_world = new World();
 		_wordServiceModel = new WorldServiceModel();
 //		_subscriptionPlay = new StreamSubscription();
 
 		// onInitEvent
 		_subscriptionPlay = eventBus.on(initEvent).listen((CanvasRenderingContext2D ctx2d) {
-			print("init world");
+			print("init world event");
 			// update model via service model
 			_wordServiceModel.init(_world);
 			// update model via service model
@@ -33,13 +35,14 @@ class WorldPresenter {
 
 		// onPlayEvent
 		_subscriptionPlay = eventBus.on(playEvent).listen((Object object) {
-			print("obj go down");
+			print("play event: imgs go down");
 			// update model via service model
 			_wordServiceModel.play(_world);
 			// update view
 			_wordView.draw(_world);
         });
 
+		print("end init world presenter");
 	}
 
 

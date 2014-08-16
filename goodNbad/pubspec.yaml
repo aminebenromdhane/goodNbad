@@ -2,4 +2,8 @@ name: goodNbad
 description: A sample web application
 dependencies:
   browser: any
-  event_bus: any
+#  intl: '>=0.9.0 <0.10.0'
+#  logging: '>=0.9.0 <0.10.0'
+#dev_dependencies:
+#  browser: '>=0.9.0 <0.10.0'
+#  unittest: '>=0.9.0 <0.10.0'
