@@ -11,14 +11,25 @@ class World {
 		_background = new Target(0.0, 0.0, Assets.MARIO_BACKGROUND_IMAGE);
 	}
 
+	List<Target> get ennemies => _ennemies;
+	void set ennemies(_ennemies){
+		this._ennemies = _ennemies;
+	}
+
 	void init(){
 		int numberOfTargets = 4;
 		for(int i = 0 ; i < numberOfTargets ; i++){
 			if (i<2) {
-				_ennemies.add(new Target(i*250.0 , 0.0, Assets.MARIO_IMAGE));
+				Target mario = new Target(i*250.0 , 0.0, Assets.MARIO_IMAGE);
+				mario.setMarioPolygon();
+				_ennemies.add(mario);
 			}
 			else {
-				_ennemies.add(new Target(i*250.0 , 0.0, Assets.LUIGI_IMAGE));
+				Target luigi = new Target(i*250.0 , 0.0, Assets.LUIGI_IMAGE);
+				//TODO to create luigi polygon
+				luigi.setMarioPolygon();
+//				luigi.setLuigiPolygon();
+				_ennemies.add(luigi);
 			}
 		}
 	}

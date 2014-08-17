@@ -10,7 +10,7 @@ class ImageContainer {
     ImageElement _imageContent;
     CanvasRenderingContext2D _context;
 
-    ImageContainer(this._imagePath, this._x, this._y){
+    ImageContainer(this._imagePath, this._x, this._y, this._hight, this._width){
     	if (_imagePath == null){
     		// default image
     		_imageContent = AssetsLoader.images.values.first._imageContent;
@@ -18,9 +18,6 @@ class ImageContainer {
     	else{
     		_imageContent = AssetsLoader.images[_imagePath]._imageContent;
     	}
-    	// size ennemy
-    	_hight = 171.toDouble();
-    	_width = 129.toDouble();
     }
 
     double get hight => _hight;
@@ -30,6 +27,10 @@ class ImageContainer {
     double get width => _width;
     void set width(_width){
     	this._width = _width;
+    }
+    ImageElement get imageContent => _imageContent;
+    void set imageContent(_imageContent){
+    	this._imageContent = _imageContent;
     }
 
 	draw(CanvasRenderingContext2D context){

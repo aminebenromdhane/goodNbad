@@ -25,6 +25,7 @@ part 'event/MouseEventManager.dart';
 final EventBus eventBus = new EventBus();
 final EventType<CanvasRenderingContext2D> initEvent = new EventType<CanvasRenderingContext2D>();
 final EventType<Object> playEvent = new EventType<Object>();
+final EventType<Point> clickEvent = new EventType<Point>();
 
 var console1;
 var console2;
