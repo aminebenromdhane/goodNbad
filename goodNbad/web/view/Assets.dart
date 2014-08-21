@@ -6,6 +6,8 @@ class Assets{
 	static String LUIGI_IMAGE = "resources/img/luigi.png";
 	static String MARIO_IMAGE = "resources/img/mario.png";
 	static String MARIO_BACKGROUND_IMAGE = "resources/img/mario-backgrounds.png";
+	static String START_GAME_IMAGE = "resources/img/startGame.png";
+	static String OPTION_IMAGE = "resources/img/option.png";
 
 	static List<String> getAllAssets(){
 		List<String> imagesPath = new List<String>();

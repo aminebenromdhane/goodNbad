@@ -9,9 +9,13 @@ part 'event/event_bus.dart';
 part 'event/simple_event_bus.dart';
 //part 'event/logging_event_bus.dart';
 
+part 'view/screen/GameScreen.dart';
+part 'view/screen/MenuScreen.dart';
+part 'view/screen/OptionScreen.dart';
 part 'service_model/WorldServiceModel.dart';
 part 'model/World.dart';
 part 'model/Target.dart';
+part 'model/GameState.dart';
 part 'view/StaticImage.dart';
 part 'view/Assets.dart';
 part 'view/AssetsLoader.dart';
@@ -19,6 +23,7 @@ part 'view/ImageLoader.dart';
 part 'view/ImageContainer.dart';
 part 'view/WorldView.dart';
 part 'presenter/WordPresenter.dart';
+part 'presenter/MenuPresenter.dart';
 part 'event/MouseEventManager.dart';
 
 // public objects
@@ -26,12 +31,12 @@ final EventBus eventBus = new EventBus();
 final EventType<CanvasRenderingContext2D> initEvent = new EventType<CanvasRenderingContext2D>();
 final EventType<Object> playEvent = new EventType<Object>();
 final EventType<Point> clickEvent = new EventType<Point>();
+final EventType<String> menuLunchEvent = new EventType<String>();
 
 var console1;
 var console2;
 var console3;
 
-WorldPresenter _worldPresenter;
 CanvasRenderingContext2D _ctx2d;
 
 // à supprimer. après avoir changer le mode de dessin
@@ -40,29 +45,7 @@ CanvasRenderingContext2D _ctx2d;
 var canvasHight = 768.toDouble();
 var canvasWidth = 1024.toDouble();
 
-void gameLoop(num delta){
-    print("begin loop");
-	// args : eventName, object passed
-	eventBus.fire(playEvent, null);
-
-	new Future.delayed(const Duration(milliseconds: 500), (){
-		window.animationFrame.then(gameLoop);
-	});
-    print("re loop");
-}
-
-void gameInit(num delta){
-
-	// init world presenter
-	_worldPresenter = new WorldPresenter();
-
-	// send init game event
-	eventBus.fire(initEvent, _ctx2d);
-
-	new Future((){
-    	window.animationFrame.then(gameLoop);
-    });
-}
+MenuPresenter _menuPresenter;
 
 void main() {
     print("begin main");
@@ -74,14 +57,7 @@ void main() {
 	// select canvas div
 	CanvasElement canvas = querySelector("#gameCanvas");
  	_ctx2d = canvas.context2D;
-
- 	// init mouse event manager
-	MouseEventManager mouseEventManager = new MouseEventManager(_ctx2d, console1);
-
-	// load game imgs then lunch the gameLoop (the beggining of the game)
-	AssetsLoader mainLoader = new AssetsLoader();
-    	mainLoader.loadImages((){
-    		window.animationFrame.then(gameInit);
-    });
-    print("end main");
+ 	_menuPresenter = new MenuPresenter(_ctx2d);
+ 	
+ 	eventBus.fire(menuLunchEvent, GameState.INIT);
 }
