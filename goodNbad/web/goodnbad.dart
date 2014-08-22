@@ -59,7 +59,6 @@ void main() {
  	_ctx2d = canvas.context2D;
  	_menuPresenter = new MenuPresenter(_ctx2d);
  	
- 	print("before fire init event");
  	eventBus.fire(menuLunchEvent, GameState.INIT);
     print("end main");
 }

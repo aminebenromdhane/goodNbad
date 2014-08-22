@@ -11,14 +11,12 @@ class MenuScreen {
 	Point _optionMsgPosition;
 	
 	MenuScreen(this._ctx2d){
-    	print("construct MenuScreen 1");
 		_welcomMsg = "Welcom to the good'n'bad game";
 		_startMsg = "Start Game";
 		_optionMsg = "Option";
 		_welcomMsgPosition = new Point(100, 50);
 		_startMsgPosition = new Point(100, 100);
 		_optionMsgPosition = new Point(100, 200);
-    	print("construct MenuScreen 3");
 	}
 	
 	void show () {

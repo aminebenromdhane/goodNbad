@@ -7,7 +7,6 @@ class MenuPresenter {
 	MenuScreen _menuScreen;
     	
 	MenuPresenter(this._ctx2d){
-    	print("construct MenuPresenter");
 		_menuScreen = new MenuScreen(_ctx2d);
 		
    		// onMenuLunchEvent
@@ -20,7 +19,6 @@ class MenuPresenter {
     }
     	
     void lunchMenu() {
-    	print("lunch Menu");
     	_menuScreen.show();
     }
 }
