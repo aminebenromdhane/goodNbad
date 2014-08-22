@@ -15,6 +15,8 @@ class Assets{
 		imagesPath.add(LUIGI_IMAGE);
 		imagesPath.add(MARIO_IMAGE);
 		imagesPath.add(MARIO_BACKGROUND_IMAGE);
+		imagesPath.add(START_GAME_IMAGE);
+		imagesPath.add(OPTION_IMAGE);
 		return imagesPath;
 	}
 

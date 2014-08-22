@@ -4,13 +4,15 @@ class MenuPresenter {
 		
 	StreamSubscription _subscriptionMenuLunch;
 	CanvasRenderingContext2D _ctx2d;
-	MenuScreen menuScreen;
+	MenuScreen _menuScreen;
     	
 	MenuPresenter(this._ctx2d){
-		menuScreen = new MenuScreen(_ctx2d);
+    	print("construct MenuPresenter");
+		_menuScreen = new MenuScreen(_ctx2d);
 		
    		// onMenuLunchEvent
     	_subscriptionMenuLunch = eventBus.on(menuLunchEvent).listen((String gameState) {
+        	print("lunch Menu event");
     		if (gameState == GameState.INIT) {
     			lunchMenu();			
     		}
@@ -18,6 +20,7 @@ class MenuPresenter {
     }
     	
     void lunchMenu() {
-    	menuScreen.show();
+    	print("lunch Menu");
+    	_menuScreen.show();
     }
 }
